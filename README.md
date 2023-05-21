@@ -1,1 +1,2 @@
 # DoD_Analysis
+The code in this repository work with the data stored at [insert Zenodo link] and generate the figures and statistics presented in [insert publication link]. "DoD_Plots.R" generates box and whisker plots of aridity, net primary productivity (NPP), and species richness across different land management groups of the western US. "Figure_DoD_Regional_Plots.py" creates maps of aridity, NPP, and species richness across different land ownership groups of the western US. See [insert publication link] for more details on this analysis.
