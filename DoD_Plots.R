@@ -36,6 +36,7 @@ DoD_Box_Plot<-function(C1,C2,C3,C4,C5,clrs,filename) {
   #EXTRA
   mtext(4, text=expression(bold(paste('g C m'^{-2},' yr'^{-1}))),line=6,cex=1.5,font=2,col='black')
   mtext(3, text=expression(bold(paste('B. Net Primary Productivity'))),line=0,adj=0.01,cex=1.25,font=2,col='black')
+  legend('topright',clrs,c('global','Western US'))
   axis(1, at = c(0,1,2,3,4,5,6), tck=0.015, labels=FALSE)
   axis(4, at = c(-150,0,250,500,750,1000), cex.axis=1.5, font.axis=2, tck=0.015, las=2)
   axis(3, at = c(0,1,2,3,4,5,6), tck=0.015, labels=FALSE)
