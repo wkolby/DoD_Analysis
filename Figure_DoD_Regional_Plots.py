@@ -80,9 +80,18 @@ def figure_westernUS_vector(fid,scale,clrs,levels,extnd,labels,filename):
     TRBshp='/Users/wksmith/Data/Shapefiles/PADUS_Merged/TRIBdissolved_PADUS21_WUS84.shp'
     TRBfeature=cfeature.ShapelyFeature(Reader(TRBshp).geometries(),ccrs.PlateCarree(),edgecolor='black',facecolor='magenta',linewidth=.25)
     ax.add_feature(TRBfeature)
-    WUSshp='/Users/wksmith/Data/Shapefiles/WesterUS_States/WesternUS.shp'
+    
+    ###Regional###
+    CPshp='/Users/wksmith/Data/shapefiles/WesternUS_States/CO_Plateau_WUS84.shp'
+    CPfeature=cfeature.ShapelyFeature(Reader(CPshp).geometries(),ccrs.PlateCarree(),facecolor='none',edgecolor='black',linewidth=1)
+    ax.add_feature(CPfeature)
+    WUSshp='/Users/wksmith/Data/Shapefiles/WesternUS_States/WesternUS.shp'
     WUSfeature=cfeature.ShapelyFeature(Reader(WUSshp).geometries(),ccrs.PlateCarree(),facecolor='none',edgecolor='black',linewidth=0.5)
     ax.add_feature(WUSfeature)
+    
+    
+    
+
     
     ###Legend###
     classes=['DOD','TRB','NPS','BLM','FS']
@@ -92,8 +101,7 @@ def figure_westernUS_vector(fid,scale,clrs,levels,extnd,labels,filename):
     plt.scatter(x,y,s=50,marker='s',c=clrs2,cmap=cmap,norm=norm,alpha=.8,edgecolors='k',zorder=3)
     for i in np.arange(len(classes)):
         ax.text(x[i]+0.4,y[i],classes[i],weight='bold',verticalalignment='center',horizontalalignment='left',size=8,zorder=4)
-
-
+    
     #Text lebel
     plt.text(-125,50,labels[0], fontsize=10, fontweight ='bold')
 
@@ -311,7 +319,7 @@ if __name__ == '__main__':
     fid2=gdal.Open(data_dir+'Mammal_WUS_4km.tif')
     fid3=gdal.Open(data_dir+'Bird_WUS_4km.tif')
     fid4=gdal.Open(data_dir+'ARD_WUS_4km.tif')
-    figure_westernUS_V2(fid1,fid2,fid3,fid4,scale,clrs,levels,extnd,labels,out_dir+"BIO_DoD_WesternUS.png")
+    #figure_westernUS_V2(fid1,fid2,fid3,fid4,scale,clrs,levels,extnd,labels,out_dir+"BIO_DoD_WesternUS.png")
     
     #plot ARD
     scale=1
@@ -327,7 +335,7 @@ if __name__ == '__main__':
     
     #LAND OWNERSHIP
     labels=['A. Land Ownership',r'xxx']
-    #figure_westernUS_vector(fid,scale,clrs,levels,extnd,labels,out_dir+"LandOwnership_WesternUS.png")
+    figure_westernUS_vector(fid,scale,clrs,levels,extnd,labels,out_dir+"LandOwnership_WesternUS.png")
     
     
     
